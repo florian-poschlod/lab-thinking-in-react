@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import jsondata from './data.json'
+import Search from './components/Search.js';
+import ProductsList from './components/ProductsList.js';
+// import ProductsItem from './components/ProductsItem.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  state = {
+    products: jsondata.data,
+    search: ''
+  }
+  
+  render() {
+
+    return (
+      <div className="App">
+        <h1>Iron Store</h1>
+        <Search search = {this.state.search}/>
+        <ProductsList products = {this.state.products}/>
+      </div>
+    );
+  }
 }
 
 export default App;

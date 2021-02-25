@@ -1,5 +1,6 @@
 .App {
-  text-align: center;
+  margin: 36px
+  /* text-align: center; */
 }
 
 .App-logo {
@@ -35,4 +36,22 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+#search {
+  margin-bottom: 24px;
+  width: 600px;
+}
+table {
+  width: 600px;
+}
+
+th, td {
+  text-align: left;
+  height: 36px;
+}
+
+tr {
+  /* background-color: #61dafb; */
+  border: 1px solid black;
 }
