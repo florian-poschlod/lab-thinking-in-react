@@ -10,16 +10,25 @@ class App extends React.Component {
 
   state = {
     products: jsondata.data,
-    search: ''
+    search: '',
+    isStocked: true
   }
 
-  setSearch = searchPram => {
+  setSearch = searchParam => {
     this.setState({
-      search: searchPram
+      search: searchParam
+    })
+  }
+
+  setIsStocked = isStockedParam => {
+    this.setState({
+    isStocked: isStockedParam
     })
   }
 
   render() {
+
+    // console.log(this.state.isStocked)
 
     return (
       <div className="App">
@@ -27,8 +36,13 @@ class App extends React.Component {
         <Search
           search={this.state.search}
           setSearchProp={this.setSearch}
+          setIsStockedProp={this.setIsStocked}
         />
-        <ProductsList products={this.state.products} />
+        <ProductsList
+          products={this.state.products}
+          search={this.state.search}
+          stocked={this.state.isStocked}
+        />
       </div>
     );
   }

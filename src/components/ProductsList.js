@@ -3,9 +3,25 @@ import ProductsItem from './ProductsItem.js'
 
 export default function ProductsList(props) {
 
-  const productsList = props.products.map(product => {
+
+  console.log(props.stocked)
+
+  // filtered prods. map
+  // filter if props.stocked filter for stocked prods
+
+  const filteredProducts = props.products.filter(product => {
+    if (product.name.includes(props.search)) {
+      return product
+    }
+  })
+  .map(product => {
+    // if(props.stocked) {
+    //   return (
+    //     {product.stocked ? && <ProductsItem product={product} />}
+    //   )
+    // }
     return (
-      <ProductsItem product = {product} />
+      <ProductsItem product={product} />
     )
   })
   
@@ -18,7 +34,8 @@ export default function ProductsList(props) {
         </tr>
       </thead>
       <tbody>
-        {productsList}
+        {/* {productsList} */}
+        {filteredProducts}
       </tbody>
     </table>
   )
