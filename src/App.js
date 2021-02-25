@@ -12,14 +12,23 @@ class App extends React.Component {
     products: jsondata.data,
     search: ''
   }
-  
+
+  setSearch = searchPram => {
+    this.setState({
+      search: searchPram
+    })
+  }
+
   render() {
 
     return (
       <div className="App">
         <h1>Iron Store</h1>
-        <Search search = {this.state.search}/>
-        <ProductsList products = {this.state.products}/>
+        <Search
+          search={this.state.search}
+          setSearchProp={this.setSearch}
+        />
+        <ProductsList products={this.state.products} />
       </div>
     );
   }
