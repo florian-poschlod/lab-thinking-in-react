@@ -11,7 +11,7 @@ class App extends React.Component {
   state = {
     products: jsondata.data,
     search: '',
-    isStocked: true
+    isStocked: false
   }
 
   setSearch = searchParam => {
